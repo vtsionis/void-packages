@@ -1,0 +1,28 @@
+# Template file for 'numlockwl'
+pkgname=numlockwl
+version=1.0
+revision=1
+makedepends="libevdev-devel"
+short_desc="Enable NumLock on startup"
+maintainer="Vasileios Tsionis <tsionisvasileios@protonmail.com>"
+license="MIT"
+homepage="https://github.com/jeebuscrossaint/numlockwl"
+distfiles="https://github.com/jeebuscrossaint/numlockwl/archive/refs/heads/main.zip"
+checksum=628f4c5c55c9b46861ef3a0fbf65742cbc673893489d7e00c998dcb59a0c7c68
+
+pre_build() {
+    make clean
+}
+
+do_build() {
+    make
+}
+
+do_install() {
+    vinstall ${pkgname} 4755 usr/bin
+}
+
+post_install {
+    vlicense LICENSE
+    vdoc README
+}
