@@ -1,6 +1,7 @@
 # Template file for 'numlockwl'
 pkgname=numlockwl
 version=1.0
+
 revision=1
 makedepends="libevdev-devel"
 short_desc="Enable NumLock on startup"
