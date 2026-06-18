@@ -22,7 +22,7 @@ do_install() {
     vinstall ${pkgname} 4755 usr/bin
 }
 
-post_install {
+post_install() {
     vlicense LICENSE
     vdoc README
 }
