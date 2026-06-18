@@ -11,8 +11,8 @@ distfiles="https://ziglang.org/download/${version}/zig-${archs}-linux-${version}
 checksum=02aa270f183da276e5b5920b1dac44a63f1a49e55050ebde3aecc9eb82f93239
 
 do_install() {
-    vbin zig usr/bin ${pkgname}
-	vcopy lib/* usr/lib
+    vbin zig ${pkgname}
+    vcopy lib/* usr/lib
 }
 
 post_install() {
