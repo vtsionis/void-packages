@@ -1,0 +1,19 @@
+# Template file for 'zig16'
+pkgname=zig16
+version=0.16.0
+revision=1
+archs="x86_64"
+short_desc="Programming language designed for robustness, optimality, and clarity"
+maintainer="Vasileios Tsionis <tsionisvasileios@protonmail.com>"
+license="MIT"
+homepage="https://ziglang.org"
+distfiles="https://ziglang.org/download/${version}/zig-${archs}-linux-${version}.tar.xz"
+checksum=70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00
+
+do_install() {
+    vinstall zig 4755 usr/bin ${pkgname}
+}
+
+post_install() {
+    vlicense LICENSE
+}
