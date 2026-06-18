@@ -1,0 +1,26 @@
+# Template file for 'river-bedload-latest'
+pkgname=river-bedload-latest
+version=0.2.0
+revision=1
+conflicts="river-bedload"
+hostmakedepends="pkg-config zig15 wayland-devel"
+makedepends="wayland-devel wayland-protocols"
+short_desc="Display information about river Wayland compositor in json in the STDOUT"
+maintainer="Vasileios Tsionis <tsionisvasileios@protonmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://git.sr.ht/~novakane/river-bedload"
+distfiles="https://git.sr.ht/~novakane/river-bedload/archive/v0.2.0.tar.gz"
+checksum=4de5fe73ab2573f1e01c8de8997d373c23cafa91960ef8cdb6581c004c87abff
+nopie=yes
+
+do_build() {
+    zig15 build -Doptimize=ReleaseSafe
+}
+
+do_install() {
+    vbin zig-out/bin/river-bedload
+}
+
+post_install() {
+    vman zig-out/share/man/man1/river-bedload.1
+}
