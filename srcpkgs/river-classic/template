@@ -2,6 +2,7 @@
 pkgname=river-classic
 version=0.3.17
 revision=1
+conflicts="river"
 archs="~i686* ~armv6l* ~armv7l*"
 hostmakedepends="pkg-config zig16 wayland-devel scdoc"
 makedepends="wayland-devel wayland-protocols wlroots0.20-devel libxkbcommon-devel
