@@ -19,6 +19,13 @@ do_build() {
     zig16 build -Doptimize=ReleaseSafe -Dxwayland=true
 }
 
+post_build() {
+    mkdir -p zig-out/man
+	scdoc < doc/river.1.scd > zig-out/man/river.1
+	scdoc < doc/riverctl.1.scd > zig-out/man/riverctl.1
+	scdoc < doc/rivertile.1.scd > zig-out/man/rivertile.1
+}
+
 do_install() {
     vbin zig-out/bin/river
     vbin zig-out/bin/riverctl
@@ -30,9 +37,9 @@ post_install() {
 
 	vsconf example/init
 
-	vman doc/river.1.scd
-	vman doc/riverctl.1.scd
-	vman doc/rivertile.1.scd
+    vman zig-out/man/river.1
+    vman zig-out/man/riverctl.1
+    vman zig-out/man/rivertile.1
 
 	vlicense LICENSE
 }
