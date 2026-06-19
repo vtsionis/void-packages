@@ -14,6 +14,7 @@ license="GPL-3.0-only"
 homepage="https://codeberg.org/river/river-classic"
 distfiles="https://codeberg.org/river/river-classic/releases/download/v${version}/river-classic-${version}.tar.gz"
 checksum=ecd5e632a417b1d79e23180bf0073c8d8f849180ebb9138e5fa71ec8bfe15fdd
+nopie=yes
 
 do_build() {
     zig16 build -Doptimize=ReleaseSafe -Dxwayland=true
