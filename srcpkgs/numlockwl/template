@@ -19,7 +19,7 @@ do_build() {
 }
 
 do_install() {
-    vinstall ${pkgname} 4755 usr/bin
+    vbin ${pkgname}
 }
 
 post_install() {
