@@ -1,0 +1,36 @@
+# Template file for 'river-classic'
+pkgname=river-classic
+version=0.3.17
+revision=1
+archs="~i686* ~armv6l* ~armv7l*"
+hostmakedepends="pkg-config zig16 wayland-devel scdoc"
+makedepends="wayland-devel wayland-protocols wlroots0.20-devel libxkbcommon-devel
+ libevdev-devel pixman-devel"
+depends="xorg-server-xwayland"
+short_desc="Dynamic tiling Wayland compositor"
+maintainer="Vasileios Tsionis <tsionisvasileios@protonmail.com>"
+license="GPL-3.0-only"
+homepage="https://codeberg.org/river/river-classic"
+distfiles="https://codeberg.org/river/river-classic/releases/download/v${version}/river-classic-${version}.tar.gz"
+
+do_build() {
+    zig16 build -Doptimize=ReleaseSafe -Dxwayland=true
+}
+
+do_install() {
+    vbin zig-out/bin/river
+    vbin zig-out/bin/riverctl
+    vbin zig-out/bin/rivertile
+}
+
+post_install() {
+	vinstall contrib/river.desktop 644 usr/share/wayland-sessions
+
+	vsconf example/init
+
+	vman doc/river.1.scd
+	vman doc/riverctl.1.scd
+	vman doc/rivertile.1.scd
+
+	vlicense LICENSE
+}
