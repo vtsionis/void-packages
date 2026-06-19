@@ -9,7 +9,7 @@ short_desc="Display information about river Wayland compositor in json in the ST
 maintainer="Vasileios Tsionis <tsionisvasileios@protonmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://git.sr.ht/~novakane/river-bedload"
-distfiles="https://git.sr.ht/~novakane/river-bedload/archive/v0.2.0.tar.gz"
+distfiles="https://git.sr.ht/~novakane/river-bedload/archive/v${version}.tar.gz"
 checksum=4de5fe73ab2573f1e01c8de8997d373c23cafa91960ef8cdb6581c004c87abff
 nopie=yes
 
